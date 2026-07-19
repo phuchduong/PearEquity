@@ -1,0 +1,16 @@
+==================================================
+           BACKTEST RESULTS: QQQ
+==================================================
+Starting Capital:          $10,000.00
+Final Strategy Value:      $320,834.03
+Final Buy & Hold Value:    $101,717.71
+Total Completed Trades:    1
+
+==================================================
+           DETAILED TRANSACTION LOG
+==================================================
+Type:        OPEN POSITION
+Entry Date:  2003-03-14 @ $21.68
+Exit Date:   2026-07-17 @ $695.33 (Current Close)
+Gain/Loss:   $310,834.03
+--------------------------------------------------
