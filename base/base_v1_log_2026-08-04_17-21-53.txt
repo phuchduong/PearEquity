@@ -1,0 +1,74 @@
+Log file created: base_v1_log_2026-08-04_17-21-53.txt
+Execution started at: 2026-08-04 17:21:53
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD QQQ
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 548.5463 shares of QQQ at $364.60 per share. Total invested: $200,000.00.
+
+--- PERFORMANCE SUMMARY FOR QQQ ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $377,394.39
+Total Return: 88.70%
+Final Share Count: 548.5463
+Final Closing Price (2026-07-31): $687.99
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD VOO
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 497.1044 shares of VOO at $402.33 per share. Total invested: $200,000.00.
+
+--- PERFORMANCE SUMMARY FOR VOO ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $341,336.74
+Total Return: 70.67%
+Final Share Count: 497.1044
+Final Closing Price (2026-07-31): $686.65
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD VTI
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 883.5093 shares of VTI at $226.37 per share. Total invested: $200,000.00.
+
+--- PERFORMANCE SUMMARY FOR VTI ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $325,316.96
+Total Return: 62.66%
+Final Share Count: 883.5093
+Final Closing Price (2026-07-31): $368.21
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD SOXQ
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 7510.3269 shares of SOXQ at $26.63 per share. Total invested: $200,000.00.
+
+--- PERFORMANCE SUMMARY FOR SOXQ ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $668,794.64
+Total Return: 234.40%
+Final Share Count: 7510.3269
+Final Closing Price (2026-07-31): $89.05
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD RSP
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 1311.9056 shares of RSP at $152.45 per share. Total invested: $200,000.00.
+
+--- PERFORMANCE SUMMARY FOR RSP ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $282,072.81
+Total Return: 41.04%
+Final Share Count: 1311.9056
+Final Closing Price (2026-07-31): $215.01
+
+==================================================
+FINAL COMPARATIVE RESULTS ACROSS ALL STRATEGIES
+==================================================
+Ticker Initial Capital Final Value Total Return (%) Final Shares
+   QQQ     $200,000.00 $377,394.39           88.70%     548.5463
+   VOO     $200,000.00 $341,336.74           70.67%     497.1044
+   VTI     $200,000.00 $325,316.96           62.66%     883.5093
+  SOXQ     $200,000.00 $668,794.64          234.40%    7510.3269
+   RSP     $200,000.00 $282,072.81           41.04%    1311.9056
+
+Execution finished at: 2026-08-04 17:21:54

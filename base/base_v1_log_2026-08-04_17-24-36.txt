@@ -1,0 +1,175 @@
+Log file created: base_v1_log_2026-08-04_17-24-36.txt
+Execution started at: 2026-08-04 17:24:36
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD QQQ
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 548.5463 shares of QQQ at $364.60 per share. Total invested: $200,000.00.
+[2021-09-20] DIVIDEND REINVESTMENT: Received $227.10 dividends ($0.4140/share). Purchased 0.6210 shares at $365.70. Total shares now: 549.1673.
+[2021-12-20] DIVIDEND REINVESTMENT: Received $269.64 dividends ($0.4910/share). Purchased 0.7083 shares at $380.69. Total shares now: 549.8756.
+[2022-03-21] DIVIDEND REINVESTMENT: Received $238.65 dividends ($0.4340/share). Purchased 0.6817 shares at $350.08. Total shares now: 550.5573.
+[2022-06-21] DIVIDEND REINVESTMENT: Received $290.14 dividends ($0.5270/share). Purchased 1.0322 shares at $281.08. Total shares now: 551.5896.
+[2022-09-19] DIVIDEND REINVESTMENT: Received $286.27 dividends ($0.5190/share). Purchased 0.9836 shares at $291.05. Total shares now: 552.5732.
+[2022-12-19] DIVIDEND REINVESTMENT: Received $361.94 dividends ($0.6550/share). Purchased 1.3417 shares at $269.75. Total shares now: 553.9149.
+[2023-03-20] DIVIDEND REINVESTMENT: Received $261.45 dividends ($0.4720/share). Purchased 0.8545 shares at $305.97. Total shares now: 554.7694.
+[2023-06-20] DIVIDEND REINVESTMENT: Received $279.60 dividends ($0.5040/share). Purchased 0.7621 shares at $366.90. Total shares now: 555.5315.
+[2023-09-18] DIVIDEND REINVESTMENT: Received $297.76 dividends ($0.5360/share). Purchased 0.8033 shares at $370.66. Total shares now: 556.3348.
+[2023-12-18] DIVIDEND REINVESTMENT: Received $449.52 dividends ($0.8080/share). Purchased 1.1043 shares at $407.08. Total shares now: 557.4391.
+[2023-12-27] DIVIDEND REINVESTMENT: Received $120.41 dividends ($0.2160/share). Purchased 0.2926 shares at $411.50. Total shares now: 557.7317.
+[2024-03-18] DIVIDEND REINVESTMENT: Received $319.58 dividends ($0.5730/share). Purchased 0.7305 shares at $437.48. Total shares now: 558.4622.
+[2024-06-24] DIVIDEND REINVESTMENT: Received $425.55 dividends ($0.7620/share). Purchased 0.8979 shares at $473.96. Total shares now: 559.3600.
+[2024-09-23] DIVIDEND REINVESTMENT: Received $378.69 dividends ($0.6770/share). Purchased 0.7840 shares at $483.04. Total shares now: 560.1440.
+[2024-12-23] DIVIDEND REINVESTMENT: Received $467.72 dividends ($0.8350/share). Purchased 0.8945 shares at $522.87. Total shares now: 561.0385.
+[2025-03-24] DIVIDEND REINVESTMENT: Received $401.70 dividends ($0.7160/share). Purchased 0.8187 shares at $490.66. Total shares now: 561.8572.
+[2025-06-23] DIVIDEND REINVESTMENT: Received $332.06 dividends ($0.5910/share). Purchased 0.6246 shares at $531.65. Total shares now: 562.4818.
+[2025-09-22] DIVIDEND REINVESTMENT: Received $390.36 dividends ($0.6940/share). Purchased 0.6482 shares at $602.20. Total shares now: 563.1300.
+[2025-12-22] DIVIDEND REINVESTMENT: Received $447.13 dividends ($0.7940/share). Purchased 0.7221 shares at $619.21. Total shares now: 563.8521.
+[2026-03-23] DIVIDEND REINVESTMENT: Received $413.30 dividends ($0.7330/share). Purchased 0.7029 shares at $588.00. Total shares now: 564.5550.
+[2026-06-22] DIVIDEND REINVESTMENT: Received $458.98 dividends ($0.8130/share). Purchased 0.6220 shares at $737.95. Total shares now: 565.1770.
+
+--- PERFORMANCE SUMMARY FOR QQQ ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $388,836.10
+Total Return: 94.42%
+Final Share Count: 565.1770
+Final Closing Price (2026-07-31): $687.99
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD VOO
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 497.1044 shares of VOO at $402.33 per share. Total invested: $200,000.00.
+[2021-09-29] DIVIDEND REINVESTMENT: Received $650.21 dividends ($1.3080/share). Purchased 1.6277 shares at $399.46. Total shares now: 498.7321.
+[2021-12-21] DIVIDEND REINVESTMENT: Received $764.56 dividends ($1.5330/share). Purchased 1.7960 shares at $425.69. Total shares now: 500.5282.
+[2022-03-24] DIVIDEND REINVESTMENT: Received $687.73 dividends ($1.3740/share). Purchased 1.6611 shares at $414.02. Total shares now: 502.1892.
+[2022-06-29] DIVIDEND REINVESTMENT: Received $719.13 dividends ($1.4320/share). Purchased 2.0568 shares at $349.64. Total shares now: 504.2460.
+[2022-09-28] DIVIDEND REINVESTMENT: Received $740.74 dividends ($1.4690/share). Purchased 2.1756 shares at $340.48. Total shares now: 506.4216.
+[2022-12-20] DIVIDEND REINVESTMENT: Received $846.74 dividends ($1.6720/share). Purchased 2.4215 shares at $349.67. Total shares now: 508.8431.
+[2023-03-24] DIVIDEND REINVESTMENT: Received $756.65 dividends ($1.4870/share). Purchased 2.0812 shares at $363.56. Total shares now: 510.9244.
+[2023-06-29] DIVIDEND REINVESTMENT: Received $805.22 dividends ($1.5760/share). Purchased 2.0005 shares at $402.51. Total shares now: 512.9248.
+[2023-09-28] DIVIDEND REINVESTMENT: Received $765.80 dividends ($1.4930/share). Purchased 1.9454 shares at $393.64. Total shares now: 514.8703.
+[2023-12-20] DIVIDEND REINVESTMENT: Received $927.28 dividends ($1.8010/share). Purchased 2.1560 shares at $430.09. Total shares now: 517.0263.
+[2024-03-22] DIVIDEND REINVESTMENT: Received $797.77 dividends ($1.5430/share). Purchased 1.6649 shares at $479.18. Total shares now: 518.6912.
+[2024-06-28] DIVIDEND REINVESTMENT: Received $925.35 dividends ($1.7840/share). Purchased 1.8502 shares at $500.13. Total shares now: 520.5414.
+[2024-09-27] DIVIDEND REINVESTMENT: Received $853.17 dividends ($1.6390/share). Purchased 1.6239 shares at $525.38. Total shares now: 522.1653.
+[2024-12-23] DIVIDEND REINVESTMENT: Received $908.05 dividends ($1.7390/share). Purchased 1.6595 shares at $547.19. Total shares now: 523.8247.
+[2025-03-27] DIVIDEND REINVESTMENT: Received $949.17 dividends ($1.8120/share). Purchased 1.8211 shares at $521.21. Total shares now: 525.6458.
+[2025-06-30] DIVIDEND REINVESTMENT: Received $917.25 dividends ($1.7450/share). Purchased 1.6148 shares at $568.03. Total shares now: 527.2606.
+[2025-09-29] DIVIDEND REINVESTMENT: Received $917.43 dividends ($1.7400/share). Purchased 1.5037 shares at $610.13. Total shares now: 528.7643.
+[2025-12-22] DIVIDEND REINVESTMENT: Received $936.44 dividends ($1.7710/share). Purchased 1.4871 shares at $629.73. Total shares now: 530.2513.
+[2026-03-27] DIVIDEND REINVESTMENT: Received $992.63 dividends ($1.8720/share). Purchased 1.7027 shares at $582.96. Total shares now: 531.9541.
+[2026-06-26] DIVIDEND REINVESTMENT: Received $1,043.69 dividends ($1.9620/share). Purchased 1.5571 shares at $670.26. Total shares now: 533.5112.
+
+--- PERFORMANCE SUMMARY FOR VOO ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $366,335.50
+Total Return: 83.17%
+Final Share Count: 533.5112
+Final Closing Price (2026-07-31): $686.65
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD VTI
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 883.5093 shares of VTI at $226.37 per share. Total invested: $200,000.00.
+[2021-09-24] DIVIDEND REINVESTMENT: Received $639.66 dividends ($0.7240/share). Purchased 2.7855 shares at $229.64. Total shares now: 886.2948.
+[2021-12-27] DIVIDEND REINVESTMENT: Received $761.33 dividends ($0.8590/share). Purchased 3.1335 shares at $242.96. Total shares now: 889.4284.
+[2022-03-23] DIVIDEND REINVESTMENT: Received $629.72 dividends ($0.7080/share). Purchased 2.8121 shares at $223.93. Total shares now: 892.2405.
+[2022-06-23] DIVIDEND REINVESTMENT: Received $668.29 dividends ($0.7490/share). Purchased 3.5344 shares at $189.08. Total shares now: 895.7749.
+[2022-09-23] DIVIDEND REINVESTMENT: Received $713.04 dividends ($0.7960/share). Purchased 3.8697 shares at $184.26. Total shares now: 899.6446.
+[2022-12-22] DIVIDEND REINVESTMENT: Received $837.57 dividends ($0.9310/share). Purchased 4.3997 shares at $190.37. Total shares now: 904.0443.
+[2023-03-23] DIVIDEND REINVESTMENT: Received $710.58 dividends ($0.7860/share). Purchased 3.6310 shares at $195.70. Total shares now: 907.6753.
+[2023-06-23] DIVIDEND REINVESTMENT: Received $750.65 dividends ($0.8270/share). Purchased 3.4924 shares at $214.94. Total shares now: 911.1676.
+[2023-09-21] DIVIDEND REINVESTMENT: Received $727.11 dividends ($0.7980/share). Purchased 3.3963 shares at $214.09. Total shares now: 914.5639.
+[2023-12-21] DIVIDEND REINVESTMENT: Received $916.39 dividends ($1.0020/share). Purchased 3.8815 shares at $236.09. Total shares now: 918.4455.
+[2024-03-22] DIVIDEND REINVESTMENT: Received $836.70 dividends ($0.9110/share). Purchased 3.2368 shares at $258.50. Total shares now: 921.6822.
+[2024-06-28] DIVIDEND REINVESTMENT: Received $877.44 dividends ($0.9520/share). Purchased 3.2800 shares at $267.51. Total shares now: 924.9623.
+[2024-09-27] DIVIDEND REINVESTMENT: Received $805.64 dividends ($0.8710/share). Purchased 2.8564 shares at $282.05. Total shares now: 927.8186.
+[2024-12-23] DIVIDEND REINVESTMENT: Received $873.08 dividends ($0.9410/share). Purchased 2.9697 shares at $294.00. Total shares now: 930.7883.
+[2025-03-27] DIVIDEND REINVESTMENT: Received $916.83 dividends ($0.9850/share). Purchased 3.2862 shares at $278.99. Total shares now: 934.0745.
+[2025-06-30] DIVIDEND REINVESTMENT: Received $852.81 dividends ($0.9130/share). Purchased 2.8059 shares at $303.93. Total shares now: 936.8805.
+[2025-09-29] DIVIDEND REINVESTMENT: Received $849.75 dividends ($0.9070/share). Purchased 2.5978 shares at $327.10. Total shares now: 939.4783.
+[2025-12-22] DIVIDEND REINVESTMENT: Received $893.44 dividends ($0.9510/share). Purchased 2.6465 shares at $337.60. Total shares now: 942.1248.
+[2026-03-27] DIVIDEND REINVESTMENT: Received $940.24 dividends ($0.9980/share). Purchased 3.0031 shares at $313.09. Total shares now: 945.1279.
+[2026-06-26] DIVIDEND REINVESTMENT: Received $986.71 dividends ($1.0440/share). Purchased 2.7241 shares at $362.22. Total shares now: 947.8519.
+
+--- PERFORMANCE SUMMARY FOR VTI ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $349,008.55
+Total Return: 74.50%
+Final Share Count: 947.8519
+Final Closing Price (2026-07-31): $368.21
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD SOXQ
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 7510.3269 shares of SOXQ at $26.63 per share. Total invested: $200,000.00.
+[2021-09-20] DIVIDEND REINVESTMENT: Received $593.32 dividends ($0.0790/share). Purchased 22.5681 shares at $26.29. Total shares now: 7532.8951.
+[2021-12-20] DIVIDEND REINVESTMENT: Received $1,114.87 dividends ($0.1480/share). Purchased 38.0112 shares at $29.33. Total shares now: 7570.9063.
+[2022-03-21] DIVIDEND REINVESTMENT: Received $492.11 dividends ($0.0650/share). Purchased 18.3623 shares at $26.80. Total shares now: 7589.2685.
+[2022-06-21] DIVIDEND REINVESTMENT: Received $531.25 dividends ($0.0700/share). Purchased 25.4551 shares at $20.87. Total shares now: 7614.7237.
+[2022-09-19] DIVIDEND REINVESTMENT: Received $525.42 dividends ($0.0690/share). Purchased 25.8953 shares at $20.29. Total shares now: 7640.6190.
+[2022-12-19] DIVIDEND REINVESTMENT: Received $511.92 dividends ($0.0670/share). Purchased 24.9840 shares at $20.49. Total shares now: 7665.6029.
+[2023-03-20] DIVIDEND REINVESTMENT: Received $590.25 dividends ($0.0770/share). Purchased 24.0624 shares at $24.53. Total shares now: 7689.6654.
+[2023-06-20] DIVIDEND REINVESTMENT: Received $538.28 dividends ($0.0700/share). Purchased 18.7422 shares at $28.72. Total shares now: 7708.4076.
+[2023-09-18] DIVIDEND REINVESTMENT: Received $493.34 dividends ($0.0640/share). Purchased 17.9592 shares at $27.47. Total shares now: 7726.3668.
+[2023-12-18] DIVIDEND REINVESTMENT: Received $587.20 dividends ($0.0760/share). Purchased 18.1684 shares at $32.32. Total shares now: 7744.5352.
+[2024-03-18] DIVIDEND REINVESTMENT: Received $534.37 dividends ($0.0690/share). Purchased 14.2690 shares at $37.45. Total shares now: 7758.8042.
+[2024-06-24] DIVIDEND REINVESTMENT: Received $473.29 dividends ($0.0610/share). Purchased 11.1941 shares at $42.28. Total shares now: 7769.9983.
+[2024-09-23] DIVIDEND REINVESTMENT: Received $528.36 dividends ($0.0680/share). Purchased 13.3660 shares at $39.53. Total shares now: 7783.3643.
+[2024-12-23] DIVIDEND REINVESTMENT: Received $537.05 dividends ($0.0690/share). Purchased 13.3363 shares at $40.27. Total shares now: 7796.7006.
+[2025-03-24] DIVIDEND REINVESTMENT: Received $537.97 dividends ($0.0690/share). Purchased 14.5713 shares at $36.92. Total shares now: 7811.2719.
+[2025-06-23] DIVIDEND REINVESTMENT: Received $578.03 dividends ($0.0740/share). Purchased 14.0062 shares at $41.27. Total shares now: 7825.2781.
+[2025-09-22] DIVIDEND REINVESTMENT: Received $579.07 dividends ($0.0740/share). Purchased 11.6256 shares at $49.81. Total shares now: 7836.9037.
+[2025-12-22] DIVIDEND REINVESTMENT: Received $485.89 dividends ($0.0620/share). Purchased 8.6411 shares at $56.23. Total shares now: 7845.5447.
+[2026-03-23] DIVIDEND REINVESTMENT: Received $557.03 dividends ($0.0710/share). Purchased 9.1093 shares at $61.15. Total shares now: 7854.6540.
+[2026-06-22] DIVIDEND REINVESTMENT: Received $604.81 dividends ($0.0770/share). Purchased 5.2542 shares at $115.11. Total shares now: 7859.9082.
+
+--- PERFORMANCE SUMMARY FOR SOXQ ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $699,924.85
+Total Return: 249.96%
+Final Share Count: 7859.9082
+Final Closing Price (2026-07-31): $89.05
+
+==================================================
+STARTING BACKTEST FOR STRATEGY: BUY AND HOLD RSP
+==================================================
+[2021-08-02] INITIAL BUY: Purchased 1311.9056 shares of RSP at $152.45 per share. Total invested: $200,000.00.
+[2021-09-20] DIVIDEND REINVESTMENT: Received $730.73 dividends ($0.5570/share). Purchased 4.8657 shares at $150.18. Total shares now: 1316.7713.
+[2021-12-20] DIVIDEND REINVESTMENT: Received $597.81 dividends ($0.4540/share). Purchased 3.8594 shares at $154.90. Total shares now: 1320.6306.
+[2022-03-21] DIVIDEND REINVESTMENT: Received $863.69 dividends ($0.6540/share). Purchased 5.5337 shares at $156.08. Total shares now: 1326.1643.
+[2022-06-21] DIVIDEND REINVESTMENT: Received $932.29 dividends ($0.7030/share). Purchased 7.0261 shares at $132.69. Total shares now: 1333.1904.
+[2022-09-19] DIVIDEND REINVESTMENT: Received $839.91 dividends ($0.6300/share). Purchased 6.0360 shares at $139.15. Total shares now: 1339.2264.
+[2022-12-19] DIVIDEND REINVESTMENT: Received $774.07 dividends ($0.5780/share). Purchased 5.5437 shares at $139.63. Total shares now: 1344.7701.
+[2023-03-20] DIVIDEND REINVESTMENT: Received $929.24 dividends ($0.6910/share). Purchased 6.6794 shares at $139.12. Total shares now: 1351.4495.
+[2023-06-20] DIVIDEND REINVESTMENT: Received $867.63 dividends ($0.6420/share). Purchased 5.9087 shares at $146.84. Total shares now: 1357.3582.
+[2023-09-18] DIVIDEND REINVESTMENT: Received $865.99 dividends ($0.6380/share). Purchased 5.9076 shares at $146.59. Total shares now: 1363.2658.
+[2023-12-18] DIVIDEND REINVESTMENT: Received $830.23 dividends ($0.6090/share). Purchased 5.3264 shares at $155.87. Total shares now: 1368.5922.
+[2024-03-18] DIVIDEND REINVESTMENT: Received $930.64 dividends ($0.6800/share). Purchased 5.6681 shares at $164.19. Total shares now: 1374.2603.
+[2024-06-24] DIVIDEND REINVESTMENT: Received $911.13 dividends ($0.6630/share). Purchased 5.4980 shares at $165.72. Total shares now: 1379.7583.
+[2024-09-23] DIVIDEND REINVESTMENT: Received $958.93 dividends ($0.6950/share). Purchased 5.3979 shares at $177.65. Total shares now: 1385.1562.
+[2024-12-23] DIVIDEND REINVESTMENT: Received $858.80 dividends ($0.6200/share). Purchased 4.8718 shares at $176.28. Total shares now: 1390.0280.
+[2025-03-24] DIVIDEND REINVESTMENT: Received $1,155.11 dividends ($0.8310/share). Purchased 6.5747 shares at $175.69. Total shares now: 1396.6027.
+[2025-06-23] DIVIDEND REINVESTMENT: Received $1,008.35 dividends ($0.7220/share). Purchased 5.6493 shares at $178.49. Total shares now: 1402.2520.
+[2025-09-22] DIVIDEND REINVESTMENT: Received $1,149.85 dividends ($0.8200/share). Purchased 6.1006 shares at $188.48. Total shares now: 1408.3527.
+[2025-12-22] DIVIDEND REINVESTMENT: Received $1,075.98 dividends ($0.7640/share). Purchased 5.5595 shares at $193.54. Total shares now: 1413.9121.
+[2026-03-23] DIVIDEND REINVESTMENT: Received $1,148.10 dividends ($0.8120/share). Purchased 5.9893 shares at $191.69. Total shares now: 1419.9015.
+[2026-06-22] DIVIDEND REINVESTMENT: Received $1,150.12 dividends ($0.8100/share). Purchased 5.4870 shares at $209.61. Total shares now: 1425.3884.
+
+--- PERFORMANCE SUMMARY FOR RSP ---
+Initial Capital: $200,000.00
+Final Portfolio Value: $306,472.76
+Total Return: 53.24%
+Final Share Count: 1425.3884
+Final Closing Price (2026-07-31): $215.01
+
+==================================================
+FINAL COMPARATIVE RESULTS ACROSS ALL STRATEGIES
+==================================================
+Ticker Initial Capital Final Value Total Return (%) Final Shares
+   QQQ     $200,000.00 $388,836.10           94.42%     565.1770
+   VOO     $200,000.00 $366,335.50           83.17%     533.5112
+   VTI     $200,000.00 $349,008.55           74.50%     947.8519
+  SOXQ     $200,000.00 $699,924.85          249.96%    7859.9082
+   RSP     $200,000.00 $306,472.76           53.24%    1425.3884
+
+Execution finished at: 2026-08-04 17:24:37
