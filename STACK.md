@@ -1,82 +1,61 @@
 # PearEquity — Stack & Technologies
 
-This document describes what PearEquity is built with and why. For the build order and milestones, see [ITERATIONS.md](ITERATIONS.md).
+This document describes what PearEquity is built with and why. The build order is in [ITERATIONS.md](ITERATIONS.md).
 
-## Principles
+## Design principles
 
-1. **SQL for data, Python for code.** Every transformation, indicator, and backtest rule that can be expressed in SQL is written in SQL. Python handles pulling, loading, orchestration glue, and API handlers.
-2. **Accumulate, never overwrite.** Raw price pulls are immutable and timestamped. Corrections and restatements create new records, so any historical result can be reproduced.
-3. **Local first, production by promotion.** The same SQL runs on DuckDB locally and Redshift in production. A model is promoted, not rewritten.
-4. **Free and low-cost tiers first.** Prefer open-source software and AWS free / low-cost tiers. Pay for a service only when a defined trigger (see below) is met.
-5. **Add tools when necessary.** Each optional tool has a written trigger. Nothing enters the stack because it might be useful someday.
+1. **MVP first, minimal scope.** The MVP does exactly two things: get a single equity's price history into a database, and backtest strategies against it. Nothing enters the MVP that those two goals do not require. Everything else is a future build-out idea (below), adopted only when its trigger is met.
+2. **SQL for data, Python for code.** Transformations, indicators, and data-quality checks are SQL. Python handles ingestion, orchestration glue, and the backtesting engine. JavaScript/HTML/CSS only if a web layer is ever built.
+3. **No tool the project did not ask for.** New tools are added by decision, against a written trigger — never because a checklist has an unnamed slot. PearEquity is a simple app; simplicity is a feature.
+4. **Free and local first.** The MVP runs entirely on the developer's machine at zero cost. Cloud services appear only in the future build-out, each with its cost stated before adoption.
+5. **Raw data is immutable, everything else is reproducible.** Raw pulls are never modified after landing. Every derived table and every backtest result can be rebuilt from raw, and every backtest records the data snapshot and parameters that produced it.
 
-## Languages
+## MVP stack
 
-| Language | Used for |
+| Technology | Role in PearEquity |
 |---|---|
-| SQL | Data modelling, transformations, indicators, backtest logic, data-quality checks. Postgres-compatible dialect throughout. |
-| Python | Ingestion from Yahoo Finance, loaders, Airflow DAGs, Lambda handlers, backtest code that cannot be expressed in SQL. |
-| JavaScript / HTML / CSS | Only where the web layer requires it — API examples, documentation, and any PearEquity status pages. |
+| SQL | All data work: loading, indicator computation, quality checks, and backtest analysis queries. Written in a Postgres-compatible dialect so it can move to Redshift later without a rewrite. |
+| Python | The ingestion code (Yahoo Finance pulls, file handling, DuckDB loading) and the backtesting engine — the strategy logic that cannot be expressed in SQL. Dependencies are defined once, in `pyproject.toml`; there is no separate requirements file. |
+| DuckDB | The database. A single local file: in-process, columnar, Postgres-dialect SQL, reads CSV/Parquet directly. It is the local stand-in for a production warehouse — the "SQLite for analytics" role — and it comfortably holds decades of daily price history. |
+| Yahoo Finance (via `yfinance`) | The source of daily price history: OHLCV, dividends, and splits. Free, no API key. |
+| Parquet / CSV | The raw file format. One file per symbol per pull, timestamped, never modified after landing. |
+| GitHub | The public repository: version control and the project's home. |
+| Sublime Text 4 | The code editor, used whenever possible. |
+| DataGrip | SQL and database work: authoring queries, browsing the DuckDB schema, inspecting data. Free for non-commercial use. |
+| Claude Code | The AI coding assistant for the project, flexible per job market. |
 
-## Editors & Tooling
+## MVP data model
 
-| Tool | Role |
-|---|---|
-| Sublime Text 4 | Primary code editor, used whenever possible. Paired with the terminal and Git CLI for running, testing, and version control. |
-| DataGrip | SQL and database work: authoring queries, browsing schemas in DuckDB and Redshift, inspecting data, tuning queries. Free for non-commercial use. |
-| Claude Code | AI coding assistant for the project. Kept flexible — the repository stores its rules in `AGENTS.md` so a different assistant can be adopted without restructuring the project. |
-| GitHub | Central repository (public) and CI via GitHub Actions: lint, tests, and dbt compilation on every change. |
+DuckDB tables, in the order data flows through them:
 
-## Data Stores
+- `raw_prices_daily` — append-only: one row per symbol per trading day **per pull**, keyed by (symbol, date, ingested_at), exactly as pulled, plus source. Rows are never updated or deleted; a corrected price arrives as a new row with a later `ingested_at`. In the MVP this holds two series: the one equity, and QQQ as the benchmark series (the strategy rules are benchmark-relative, so the backtest cannot run without it).
+- `stg_prices` — one row per (symbol, date): the most recent pull's values, cleaned and typed.
+- `int_daily_returns` — daily returns per symbol, and alpha versus QQQ.
+- `int_indicators` — 50-day and 200-day moving averages, golden/death cross flags, RSI, Wilder ATR(22), and the Chandelier stop (highest high over 22 days minus 6 × ATR, ratcheted so it never moves down).
+- `fct_prices_enriched` — the analysis-ready table: prices joined with returns, alpha, and indicators.
+- `fct_backtest_runs` / `fct_backtest_trades` / `fct_backtest_equity_curve` — backtest results: run metadata (strategy parameters, data snapshot), individual trades, and the daily equity curve.
 
-| Store | Role |
-|---|---|
-| DuckDB | Local data store. A single embedded file, columnar, Postgres-dialect SQL. Used for development, prototyping, and fast backtest iteration with no server to run. |
-| Amazon Redshift Serverless | Production data store. Columnar warehouse with Postgres-compatible SQL, billed per query capacity used, so it costs nothing while idle apart from storage. Schemas mirror the DuckDB models. |
-| Amazon S3 | Landing zone and file store. `raw/` holds every API pull, immutable and timestamped. `curated/` holds cleaned Parquet files ready to load. Versioning on, public access blocked. |
-| Parquet | File format for landed and curated data: compact, columnar, readable by DuckDB, Redshift, and Glue alike. |
+Prices are kept in one consistent, split-adjusted frame throughout; indicator levels and triggers are computed on that same frame.
 
-## Data Pipeline
+## Cost
 
-| Component | Role |
-|---|---|
-| Yahoo Finance (via `yfinance`) | Source of daily price history: open, high, low, close, adjusted close, volume, dividends, and splits. Pulled incrementally in Python. |
-| dbt | SQL transformation layer. Builds staging, intermediate, and mart models; runs schema and data tests; generates model documentation and lineage. |
-| Apache Airflow | Orchestrator. Schedules and runs the daily pipeline — pull, land, load, transform, quality-check — with dependencies, retries, and backfills. Runs locally in Docker. |
-| AWS Glue | Batch processing on Apache Spark, added only when necessary (see triggers). Also provides the Data Catalog if S3 data needs a shared catalog of record. |
+The MVP costs nothing: DuckDB, Python, SQL, and GitHub (public repository) are free, Yahoo Finance needs no key, and there is no cloud account involved at all. Any future build-out item that introduces a standing charge states that cost in its adoption decision before it is built.
 
-## Cloud Services (AWS)
+## Future build-out technologies
 
-| Service | Role |
-|---|---|
-| AWS Lambda + API Gateway | The PearEquity API: price lookups, indicator queries, backtest submission and results. Serverless, with a perpetual free tier of 1M requests and 400,000 GB-seconds per month that covers expected use. |
-| AWS KMS | Encryption for S3, Redshift, and secrets. One customer-managed key for the project ($1/month per key), AWS-managed keys elsewhere. |
-| AWS Secrets Manager | Database credentials and any API keys ($0.40 per secret per month — secret count is kept low by grouping fields into a single JSON secret). Non-secret configuration lives in SSM Parameter Store at no cost. |
-| IAM | All authentication and authorization. People sign in through IAM Identity Center with multi-factor authentication and temporary credentials. Applications and services use IAM roles with temporary credentials — Lambda execution roles, and GitHub Actions connected by OIDC federation. No long-lived access keys in code, configuration, or the repository. Amazon Cognito would be added only if public end-user accounts are ever needed; IAM is not an end-user identity system. |
-| S3 Glacier Flexible / Deep Archive | Long-term archiving, applied by S3 lifecycle rules rather than by hand: raw landing data moves to Glacier Flexible after 90 days and Deep Archive after 365 days. |
-| AWS Budgets | Cost guardrails: alerts at $1, $5, and $10 of monthly spend. The production region is us-west-2. |
+None of these are in the MVP. Each is adopted only when its trigger is met, and the adoption — with its reason and, where relevant, its cost — is recorded when it happens.
 
-### Cost notes
+| Technology | What it would add | Adoption trigger |
+|---|---|---|
+| Full symbol universe | `config/symbols.csv` grows from one equity (+ QQQ benchmark) to a watchlist, with a symbol-history table for renames (FB → META, SQ → XYZ), mergers, and delistings. | Backtests need to compare or coordinate multiple equities. |
+| dbt | The SQL models become a managed dbt project: tests, documentation, lineage. | The handful of MVP SQL files grows into enough models that tests and lineage pay for the tooling. |
+| Apache Airflow | Scheduled, unattended orchestration of the daily pipeline (pull → load → transform → quality gate), with retries and backfill support. Runs locally in Docker Compose. | The daily pipeline has enough steps, dependencies, and retry/backfill needs that running a script by hand is the bottleneck. |
+| Amazon S3 | Cloud landing zone for raw files and a `curated/` Parquet prefix, replacing local disk as the durable store. | The data must live beyond one machine, or the AWS production build-out is adopted. |
+| Amazon Redshift Serverless | The production warehouse: the DuckDB models promoted to a shared, always-available store with the same Postgres-compatible SQL. | Local DuckDB can no longer answer queries interactively, or a shared production store is needed. |
+| AWS KMS + Secrets Manager + IAM | Encryption at rest, managed credentials, and role-based access (people via IAM Identity Center, workloads via roles, no long-lived keys) for the AWS resources. | The first AWS resource is created. Note: these carry small standing charges (about $1/month per KMS key, $0.40/month per secret), so the AWS build-out starts with AWS Budget alerts at $1 / $5 / $10. |
+| Amazon DynamoDB | The API serving layer. Redshift is a warehouse built for analytical scans — per-request serving is an anti-pattern for it — so a publish step would copy API-shaped data (prices/indicators by symbol and date, backtest metadata) into DynamoDB for millisecond key lookups; large payloads (equity curves) would sit in S3 with DynamoDB pointers. Permanent free tier (25 GB, 25 read / 25 write units) covers this project's scale. | The API is adopted (below). |
+| AWS Lambda + API Gateway | A public API — `GET /prices/{symbol}`, `GET /indicators/{symbol}`, `POST /backtests`, `GET /backtests/{id}`, `GET /backtests/{id}/equity-curve` — for downstream systems, reading only the serving layer. | A real downstream consumer needs programmatic access. |
+| S3 Glacier lifecycle | Automatic archiving of raw files: Glacier Flexible after 90 days, Deep Archive after 365 days, under one S3 bucket with `raw/` and `curated/` prefixes. | S3 is adopted and raw data has accumulated. |
+| AWS Glue | Serverless Spark ETL and a Data Catalog for the curated zone. | A workload outgrows single-machine DuckDB/dbt processing. |
 
-- Always-free or effectively free at PearEquity's scale: Lambda, GitHub Actions (public repository), DuckDB, Airflow, and dbt Core.
-- Small standing charges by design: KMS customer-managed key ($1/month), Secrets Manager ($0.40/secret/month), S3 storage, and Redshift Serverless capacity while queries run (a $300 / 90-day trial covers first use).
-- Avoided by design: provisioned Redshift clusters, managed Airflow (MWAA), and NAT Gateways — each bills continuously while idle.
-
-## "When necessary" triggers
-
-| Tool | Add it when |
-|---|---|
-| dbt | SQL transforms grow beyond roughly five models, or model tests, documentation, and lineage are needed. Expected in Iteration 2. |
-| Apache Airflow | The daily pipeline has three or more dependent steps needing retries and backfills. Expected in Iteration 3. Before that, a scheduled Python script is sufficient. |
-| Amazon Redshift | Local DuckDB can no longer answer backtest queries interactively, or a shared production store is needed. Expected in Iteration 4. |
-| AWS Lambda | A consumer needs an API — price, indicator, and backtest endpoints for downstream systems, or an event trigger on S3 arrival. Expected in Iteration 5. |
-| AWS Glue | A transformation outgrows SQL and Python on a single machine — for example, reprocessing tens of millions of rows — or the Glue Data Catalog is needed as the catalog of record. No fixed iteration; added only if a workload demands it. |
-| S3 Glacier | Raw landing data older than 90 days exists. Applied as an automatic lifecycle rule in Iteration 6. |
-
-## Data model (summary)
-
-- `raw_prices_daily` — one row per symbol per trading day, exactly as pulled, plus source and ingestion timestamp.
-- `dim_symbol` / `dim_symbol_history` — symbols and their history: renames, mergers, delistings, with effective dates and reasons.
-- `stg_prices` — cleaned, typed, deduplicated prices (split-adjusted frame used consistently for indicators).
-- `int_indicators` — daily returns, 50/200-day moving averages, cross signals, RSI, ATR, Chandelier stop levels, alpha versus benchmark.
-- `fct_backtest_*` — backtest runs, trades, and daily equity curves, one set per strategy variant and parameter set.
+**Explicitly not adopted, by decision:** infrastructure-as-code tooling (Terraform and similar) — PearEquity's AWS footprint would be a handful of resources created once; they are set up manually in the Console (or with AWS CLI commands) and written down as a setup guide under `infra/`, with the decision revisited only if resources reach the dozens or a second environment appears. Managed Airflow (MWAA), provisioned Redshift clusters, NAT Gateways, and cache clusters (ElastiCache, API Gateway caching) are likewise avoided: each bills continuously while idle, and a cache in front of the warehouse is cost spent protecting a database the API should not query at all.
